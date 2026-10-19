@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fff8f4">
+  <meta name="description" content="A tiny pocket of joy, flowers, silly cats and little surprises. Made just for you. Happy Women's Day!">
+  <title>The Purrfect Happiness Machine ♡</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+    :root{--cream:#fffaf5;--paper:#fffdf9;--ink:#614f5d;--deep:#4a3d4d;--muted:#95818c;--pink:#f6a8c5;--rose:#e777a2;--shell:#ffd8e5;--mint:#bce6d4;--lavender:#d9c7f4;--butter:#ffebb3;--border:#f0dce0;--shadow:0 18px 54px rgba(158,91,116,.11);--font:'Quicksand','Trebuchet MS',sans-serif;--title:'Playfair Display',Georgia,serif}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-width:320px;background:radial-gradient(ellipse at 5% 8%,#fff1ee 0,transparent 28%),radial-gradient(ellipse at 94% 20%,#f3f6e9 0,transparent 24%),radial-gradient(ellipse at 14% 77%,#f9ecff 0,transparent 33%),var(--cream);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.5;overflow-x:hidden}
+    button,a{font:inherit} button{cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation} button:disabled{cursor:wait;opacity:.7} a{color:inherit}
+    button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid #a45d88;outline-offset:4px}
+    svg{display:block;max-width:100%}
+    .page{position:relative;isolation:isolate}.page::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.34;background-image:radial-gradient(#d4b4c0 1px,transparent 1px);background-size:31px 31px;mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 84%,transparent)}
+    .wrap{width:min(1110px,calc(100% - 44px));margin:auto}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:24px 0 7px;gap:16px}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;letter-spacing:-.035em;font-size:15px}.brand-mark{width:38px;height:38px;border-radius:15px;background:#ffdae8;display:grid;place-items:center;color:#bf5a86;box-shadow:0 5px 15px #f6c8d65e;font-size:22px;transform:rotate(-8deg)}
+    .nav-right{display:flex;align-items:center;gap:8px}.nav-chip{border:1px solid #efcfd9;border-radius:100px;padding:8px 13px;background:#fff9fb;color:#bf7092;font-size:12px;font-weight:800;letter-spacing:.025em}.quiet-btn{border:1px solid #edd6df;border-radius:100px;background:#fffafc;padding:8px 13px;color:#8e7182;font-size:12px;font-weight:800}
+    .hero{text-align:center;padding:36px 10px 28px;position:relative}.eyebrow{color:#c77e9c;letter-spacing:.27em;font-size:10px;font-weight:800;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:14px}.eyebrow::before,.eyebrow::after{content:'✳';font-size:12px;color:#e4acba;letter-spacing:0}
+    h1{font:600 clamp(39px,6.3vw,71px)/1.13 var(--title);letter-spacing:-.037em;color:#534150;margin:14px 0 14px}
+    h1 em{font-weight:500;color:#db86ab}.hero p{font-size:14px;max-width:540px;margin:0 auto;color:#97818f;line-height:1.8}.hero-doodle{position:absolute;font-size:26px;color:#e2afc6;pointer-events:none}.hero-doodle.l{left:12%;top:42px;transform:rotate(-15deg)}.hero-doodle.r{right:13%;top:85px;transform:rotate(17deg)}
+    .play-grid{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,.83fr);gap:20px;align-items:stretch}
+    .panel{position:relative;border:1.5px solid rgba(231,194,207,.75);background:rgba(255,254,250,.9);border-radius:32px;box-shadow:var(--shadow);overflow:hidden}
+    .panel-title{display:flex;align-items:center;gap:8px;color:#7c6473;font-size:13px;font-weight:800;letter-spacing:.025em;margin:0}.small-icon{width:23px;height:23px;display:grid;place-items:center;border-radius:9px;background:#ffedf3;color:#d47c9f}
+    .machine-panel{padding:20px 25px 24px;background:linear-gradient(145deg,#fffdf9 0%,#fff3f5 100%);text-align:center}
+    .machine-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+    .counter{color:#af8194;font-size:12px;font-weight:700;background:#fff;display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid #f2d9e2;border-radius:30px}.counter strong{color:#d780a4;font-size:14px}
+    .machine-stage{position:relative;height:422px;max-height:58vh;min-height:340px;display:flex;justify-content:center;align-items:center;overflow:hidden}
+    .machine-stage::before{content:'';position:absolute;width:90%;height:74%;left:5%;top:13%;border-radius:50%;background:radial-gradient(ellipse,#fff8ee,#f9ebef88 64%,transparent 70%)}
+    #gacha-svg{position:relative;height:100%;width:100%;max-width:385px;overflow:visible;filter:drop-shadow(0 12px 8px #d1a1b044);z-index:1}
+    .stage-note{position:absolute;right:3%;top:18%;font-size:11px;background:#fff;padding:8px 12px;box-shadow:0 6px 20px #d5b0ba3b;transform:rotate(8deg);border-radius:12px;z-index:2;color:#bf7d9e;font-weight:800}
+    .stage-flower{position:absolute;font-size:27px;color:#efafc4;opacity:.8}.stage-flower.f1{left:7%;bottom:12%;transform:rotate(25deg)}.stage-flower.f2{right:9%;bottom:8%;color:#e9c3a0}.stage-flower.f3{left:6%;top:20%;color:#d9bce3;font-size:17px}
+    .machine-copy{margin:-5px 0 15px;color:#a18a99;font-weight:600;font-size:13px}
+    .main-action{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:16px;background:linear-gradient(130deg,#f3a0bc,#e887b0);color:#fff;box-shadow:0 7px 0 #d979a1,0 13px 26px #e997b659;padding:16px 29px;font-size:15px;font-weight:800;letter-spacing:.005em;transition:transform .15s,box-shadow .15s;min-height:53px}
+    .main-action:hover{transform:translateY(-2px);box-shadow:0 9px 0 #d979a1,0 16px 28px #e997b659}.main-action:active{transform:translateY(5px);box-shadow:0 2px 0 #d979a1,0 4px 12px #e997b659}
+    .spin-hint{font-size:11px;font-weight:600;color:#b19ba6;margin:15px 0 0}.knob{transform-origin:286px 391px}.spinning .knob{animation:crank 1s ease-in-out}.spinning .gacha-capsules{animation:shake .15s ease-in-out 7 alternate}.spinning #gacha-svg{animation:wobble .9s ease-in-out}.spinning .machine-popped{animation:pop-capsule 1.05s ease-in-out forwards}
+    .machine-popped{opacity:0;transform-origin:center}
+    .side-col{display:flex;flex-direction:column;gap:20px;min-width:0}.cat-panel{padding:20px 20px 19px;text-align:center;flex:1;background:linear-gradient(166deg,#fffefa,#fff8ef 69%,#fef5f4)}
+    .cat-panel>.panel-title{text-align:left}.cat-scene{height:269px;display:flex;align-items:center;justify-content:center;position:relative;max-width:430px;margin:4px auto 0}
+    .cat-scene::before{content:'';position:absolute;background:#faf0e9;border-radius:50%;width:81%;height:76%;left:9%;top:12%}
+    #catButton{border:0;background:transparent;padding:0;position:relative;height:100%;width:100%;max-width:310px;cursor:pointer;transform-origin:bottom center}
+    #cat-svg{width:100%;height:100%;filter:drop-shadow(0 7px 3px #cfa8a127);overflow:visible}
+    .cat-hint{position:absolute;bottom:9px;right:4px;padding:4px 9px;border:1px solid #f4d8dc;background:#fffaf9;border-radius:100px;color:#bd8a9d;font-size:10px;font-weight:800;transform:rotate(-7deg)}
+    .speech{position:relative;background:white;border:1.5px solid #f2d6df;border-radius:17px;padding:10px 13px;max-width:93%;min-height:51px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;color:#806a79;font-size:12px;font-weight:700;box-shadow:0 4px 12px #daaeb42a}
+    .speech::after{content:'';position:absolute;bottom:-8px;left:46%;width:13px;height:13px;transform:rotate(45deg);background:white;border-right:1.5px solid #f2d6df;border-bottom:1.5px solid #f2d6df}
+    .cat-actions{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}.cat-act{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:9px 3px;border:1px solid #f3dce3;border-radius:13px;background:#fff;color:#8d7886;font-size:10px;font-weight:800;min-height:56px;transition:transform .18s,background .18s}.cat-act span{font-size:18px;font-weight:400;line-height:1}.cat-act:hover,.cat-act:focus-visible{transform:translateY(-3px);background:#fff2f6}
+    .cat-panel .micro{margin:10px 0 0;color:#b7a1ac;font-size:10px}
+    #catButton.pet-anim{animation:petbounce .5s ease}#catButton.dance-anim{animation:catdance 1.1s ease-in-out 2}#catButton.treat-anim{animation:petbounce .6s ease}#catButton.nap-anim{animation:catsleep 1.6s ease-in-out infinite alternate}#catButton.bow-anim{animation:petbounce .45s ease}
+    #cat-svg .cat-tail{transform-origin:252px 214px;animation:tailsway 2.5s ease-in-out infinite alternate}#cat-svg .eyes-sleep{opacity:0}#cat-svg .cat-bow{opacity:0;transform-origin:248px 128px}#cat-svg .cat-treat{opacity:0}#catButton.sleeping #cat-svg .eyes-open{opacity:0}#catButton.sleeping #cat-svg .eyes-sleep{opacity:1}#catButton.with-bow #cat-svg .cat-bow{opacity:1}#catButton.eating #cat-svg .cat-treat{opacity:1;animation:treat-float 1s ease forwards}
+    .little-note{border:1.5px dashed #eac8dc;border-radius:24px;padding:19px 19px 17px;background:linear-gradient(125deg,#fff7fc,#f9f3ff);position:relative;overflow:hidden}
+    .little-note::after{content:'✿';position:absolute;right:9px;top:-28px;color:#ebd8f6;font-size:108px;pointer-events:none;opacity:.6}
+    .little-note .mini-eyebrow{font-size:10px;font-weight:800;letter-spacing:.18em;color:#b989b6;text-transform:uppercase;position:relative;z-index:1}
+    .little-note h3{font:600 22px/1.3 var(--title);margin:6px 0 6px;color:#6a556b;position:relative;z-index:1}.little-note p{font-size:12px;line-height:1.6;margin:0 0 12px;color:#9b859b;max-width:230px;position:relative;z-index:1}
+    .outline-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1.5px solid #e5bdd4;border-radius:100px;padding:9px 15px;background:white;color:#b47c9d;font-size:11px;font-weight:800;position:relative;z-index:1}.outline-btn:hover{background:#fff0f9}.outline-btn:disabled{opacity:.75}
+    .under-grid{display:grid;grid-template-columns:1.18fr .83fr;gap:20px;margin:21px 0 23px}
+    .shelf-panel,.achieve-panel{padding:20px 23px;min-height:166px}.subheading{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-bottom:13px}.subheading h2{font-size:14px;font-weight:800;color:#715766;margin:0}.subheading span{font-size:11px;color:#b49eaa}
+    .shelf-list{display:flex;gap:8px;overflow-x:auto;scrollbar-width:thin;padding-bottom:5px}.empty-shelf{font-size:12px;line-height:1.6;color:#aa95a0;background:#fff8fa;border:1px dashed #efd8df;padding:18px 14px;border-radius:13px;width:100%;text-align:center}
+    .shelf-item{flex:0 0 96px;min-height:91px;border:1px solid #f0d7e0;border-radius:14px;background:#fff9fb;color:#9d7084;padding:9px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;text-align:center;transition:transform .16s}.shelf-item:hover{transform:translateY(-3px)}.shelf-item .s-ico{font-size:28px}.shelf-item .s-name{font-size:10px;font-weight:800;line-height:1.3;max-height:27px;overflow:hidden}
+    .badges{display:flex;gap:9px;flex-wrap:wrap}.tiny-badge{display:inline-flex;align-items:center;gap:7px;padding:9px 10px;background:#fcf8fa;border:1px dashed #ead7df;border-radius:12px;font-weight:800;font-size:10px;color:#b2a0a9;filter:grayscale(.6);opacity:.7}.tiny-badge.unlocked{filter:none;opacity:1;background:#fff4f8;border-style:solid;color:#ad7391}.tiny-badge i{font-style:normal;font-size:16px}
+    .music-section{margin:0 auto 26px;background:#fcf8ef;border:1.5px solid #ece4d5;border-radius:28px;padding:25px 29px;display:grid;grid-template-columns:1fr 1.11fr;gap:24px;align-items:center;box-shadow:0 9px 35px #c0a99820}
+    .music-title{display:flex;align-items:center;gap:10px;font:600 26px var(--title);color:#735f60;margin:0}.music-head p{max-width:410px;font-size:12px;color:#998883;line-height:1.8;margin:9px 0 16px}.music-pill{display:inline-block;border-radius:50px;background:#fff3de;padding:4px 10px;color:#ad8d72;font-size:10px;font-weight:800;letter-spacing:.08em}
+    .song-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.song-btn{background:#fffdf9;border:1px solid #eadfd5;border-radius:12px;padding:10px 11px;display:flex;align-items:center;gap:9px;text-align:left;color:#8b7a7a;min-height:49px}.song-btn.active{border-color:#d999ad;background:#fff0f5;box-shadow:0 3px 12px #ddb9bb45}.song-btn .song-mark{width:30px;height:30px;flex:0 0 30px;border-radius:9px;display:grid;place-items:center;background:#f1e2df;color:#b68b9c;font-size:14px}.song-btn.active .song-mark{background:#f7c7d9;color:#9c5676}.song-btn strong,.song-btn small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.song-btn strong{font-weight:800;font-size:11px}.song-btn small{font-size:9px;color:#b3a19c}
+    .player-card{background:#fff;border:1px solid #eae0d7;padding:14px;border-radius:20px;box-shadow:0 8px 20px #bca9a033;min-width:0}.player-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}.player-now{font-size:11px;font-weight:800;color:#957b85}.player-status{font-size:10px;color:#ac9a9a}.spotify-host{width:100%;height:152px;overflow:hidden;border-radius:14px;background:#f8e9ed}.spotify-host iframe{width:100%;height:152px;border:0;border-radius:14px}.player-tools{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}.player-ctrl{background:#fceaf1;border:1px solid #efcfdd;color:#9e6483;padding:7px 12px;border-radius:100px;font-size:11px;font-weight:800}.player-ctrl:disabled{opacity:.5}.spotify-link{font-size:11px;color:#967e84;text-decoration:underline;text-underline-offset:2px}.player-disclaimer{font-size:10px;color:#a79b99;line-height:1.5;margin:8px 0 0}
+    footer{text-align:center;color:#b09ba6;font-size:11px;padding:0 14px 28px}.footer-heart{color:#df83ac}.footer-line{width:72px;height:1px;background:#edcfd9;margin:5px auto 14px}
+    .modal-backdrop,.intro-backdrop{position:fixed;inset:0;z-index:60;background:rgba(70,50,67,.44);backdrop-filter:blur(9px);display:grid;place-items:center;padding:16px;overflow-y:auto}.modal-backdrop[hidden],.intro-backdrop[hidden]{display:none}
+    .reward-dialog{position:relative;width:min(435px,100%);max-height:min(94vh,750px);overflow-y:auto;border-radius:29px;border:2px solid #ffe0e8;background:linear-gradient(155deg,#fffdfb 0%,#fff4f7 100%);box-shadow:0 26px 75px #4d253b38;padding:27px 29px 29px;text-align:center;animation:dialog-in .3s cubic-bezier(.2,.8,.2,1);outline:0}
+    .reward-dialog::before{content:'';position:absolute;inset:9px;border:1px dashed #f5dbe5;border-radius:22px;pointer-events:none}
+    .close-btn{position:absolute;right:17px;top:15px;width:34px;height:34px;border:1px solid #f3d8e0;border-radius:50%;background:#fff;color:#ad7c91;font-size:20px;line-height:1;z-index:1}.close-btn:hover{background:#fff0f5}
+    .reward-label{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#c985a3;background:#fff;padding:7px 12px;border-radius:100px;border:1px solid #f1d8e2;margin:5px 0 14px}
+    .reward-illustration{position:relative;width:160px;height:148px;margin:0 auto 11px;display:grid;place-items:center;background:radial-gradient(circle,#ffedf2 8%,#fff4ed 58%,transparent 75%)}
+    .reward-sigil{font:500 88px var(--title);color:#dc96b6;line-height:1;filter:drop-shadow(0 4px 0 #f7d0db)}
+    .reward-dialog h2{font:600 29px/1.26 var(--title);color:#644c61;margin:0 0 10px}.reward-dialog .reward-body{font-size:14px;line-height:1.9;color:#846c7e;max-width:335px;margin:0 auto 19px}.reward-dialog .reward-footer{font-size:11px;color:#b6a1ad;margin:10px auto 0}.reward-dialog .main-action{padding:12px 23px;min-height:46px;font-size:12px}
+    .meme-frame{width:155px;height:144px;background:#fff;border:1.5px solid #edcedb;border-radius:19px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 4px 15px #e7c3cc66;transform:rotate(-3deg);overflow:hidden}.meme-top,.meme-bottom{font-size:10px;font-weight:800;color:#886776;letter-spacing:.01em;text-align:center;padding:0 5px}.meme-cat{display:block;width:101px;height:102px}
+    .letter-mode .reward-dialog{background:linear-gradient(165deg,#fffcf6,#fff3f3);padding:37px 31px}.letter-head{font:600 34px/1.1 var(--title);color:#ba7299;margin:5px 0 20px}.letter-copy{text-align:left;font:500 14px/2 var(--font);color:#75616c;background:#fffefa;border-radius:16px;border:1px solid #f2d8dc;padding:17px 21px;white-space:pre-line}.letter-sign{text-align:right;margin-top:14px;font-family:var(--title);font-style:italic;font-size:20px;color:#c185a3}
+    .intro-backdrop{z-index:80;background:radial-gradient(circle at 50% 0,#fff4f4,#ffedf1 60%,#efe9ff);backdrop-filter:none}
+    .intro-card{position:relative;text-align:center;width:min(465px,100%);padding:24px 26px 35px;border-radius:30px;border:1.5px solid #f1cddd;background:rgba(255,253,251,.9);box-shadow:0 22px 55px #aa809c29;animation:dialog-in .4s ease}.intro-star{font-size:17px;color:#e1a2bb}.intro-illustration{height:205px;display:flex;justify-content:center;align-items:center}.intro-illustration svg{height:191px;width:235px;filter:drop-shadow(0 12px 12px #dbb8c161);animation:envelope-float 3s ease-in-out infinite alternate}.intro-card .overline{font-size:10px;letter-spacing:.26em;color:#c085a5;font-weight:800}.intro-card h2{font:600 39px/1.14 var(--title);letter-spacing:-.024em;margin:10px 0;color:#715368}.intro-card h2 em{color:#dc90b2}.intro-card p{font-size:13px;line-height:1.9;color:#967c8d;margin:0 auto 24px;max-width:325px}.intro-card .main-action{width:100%;max-width:250px}.later-btn{border:0;background:transparent;color:#af9eab;text-decoration:underline;text-underline-offset:3px;display:block;margin:19px auto 0;font-weight:700;font-size:11px}
+    .celebration-layer{position:fixed;inset:0;z-index:95;pointer-events:none;overflow:hidden}.particle{position:absolute;top:-15px;font-size:22px;color:#e8a8bf;animation:particle-fall 2.8s ease-in forwards}
+    .toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,120px);opacity:0;z-index:100;background:#644d60;color:#fff;padding:12px 18px;border-radius:60px;box-shadow:0 10px 28px #7354664c;font-size:12px;font-weight:800;max-width:calc(100% - 36px);text-align:center;transition:transform .3s,opacity .3s;pointer-events:none}.toast.show{transform:translate(-50%,0);opacity:1}
+    .preview-warning{display:none;max-width:700px;margin:10px auto 22px;padding:19px 21px;border:1.5px solid #e9bfd0;background:#fff7fa;border-radius:19px;color:#7f576a;text-align:center;box-shadow:0 5px 19px #ddadc530;font-size:13px;line-height:1.8}
+    .preview-warning strong{display:block;color:#a55b7d;font-size:15px;margin-bottom:5px}
+    .preview-warning a{font-weight:800;color:#a3517d;text-underline-offset:3px}
+    .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+    .floaty{animation:floaty 4s ease-in-out infinite alternate}
+    @keyframes floaty{from{transform:translateY(-3px)}to{transform:translateY(6px)}}
+    @keyframes tailsway{from{transform:rotate(-7deg)}to{transform:rotate(9deg)}}
+    @keyframes crank{0%{transform:rotate(0)}50%{transform:rotate(190deg)}100%{transform:rotate(360deg)}}
+    @keyframes shake{from{transform:translate(-3px,3px) rotate(-1deg)}to{transform:translate(4px,-2px) rotate(2deg)}}
+    @keyframes wobble{0%,100%{transform:rotate(0deg)}24%{transform:rotate(-2deg)}55%{transform:rotate(2.5deg)}77%{transform:rotate(-1deg)}}
+    @keyframes pop-capsule{0%,48%{opacity:0;transform:translateY(-23px) scale(.5)}65%{opacity:1;transform:translateY(7px) scale(1.1)}85%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-17px) scale(1.5)}}
+    @keyframes petbounce{0%,100%{transform:scale(1)}35%{transform:scale(.95,1.05)}70%{transform:scale(1.07,.94)}}
+    @keyframes catdance{0%,100%{transform:rotate(0) translateY(0)}25%{transform:rotate(-9deg) translateY(-8px)}50%{transform:rotate(8deg) translateY(1px)}75%{transform:rotate(-7deg) translateY(-7px)}}
+    @keyframes catsleep{from{transform:scale(1)}to{transform:scale(1.018,.98)}}
+    @keyframes treat-float{0%{opacity:0;transform:translateY(-28px)}30%{opacity:1}100%{opacity:0;transform:translateY(60px)}}
+    @keyframes dialog-in{from{opacity:0;transform:translateY(23px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+    @keyframes envelope-float{from{transform:rotate(-3deg) translateY(-4px)}to{transform:rotate(3deg) translateY(5px)}}
+    @keyframes particle-fall{0%{opacity:0;transform:translate3d(0,-20px,0) rotate(0)}10%{opacity:1}100%{opacity:0;transform:translate3d(var(--drift),110vh,0) rotate(500deg)}}
+
+    .intro-music-hint{font-size:10px!important;color:#ad8d9f!important;margin:9px auto 0!important;max-width:300px}
+    .music-fallback{font-size:11px;font-weight:700;color:#a36a83;background:#fff4f6;border:1px solid #ebceda;border-radius:13px;padding:10px 12px;margin:10px 0 0;line-height:1.6}
+    .music-fallback[hidden]{display:none}
+    .music-hint-banner{position:fixed;z-index:45;bottom:max(12px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center;gap:10px;width:min(92vw,470px);background:#fffdf9;border:1px solid #f2c9d9;border-radius:16px;padding:11px 12px;box-shadow:0 12px 32px #6d46582f;color:#835a77;font-size:11px;font-weight:800;line-height:1.35}
+    .music-hint-banner[hidden]{display:none}.music-hint-banner button{border:1px solid #eebfd1;background:#ffeff5;color:#955671;border-radius:100px;padding:7px 9px;font-size:11px;font-weight:800;white-space:nowrap}
+    .music-hint-banner .hint-dismiss{background:transparent;border:0;font-size:18px;padding:0 3px;color:#ae8a9c}
+    @media(min-width:1100px){.machine-stage{height:450px;max-height:none}.cat-scene{height:295px}}
+    @media(max-width:790px){.play-grid,.under-grid{grid-template-columns:1fr}.side-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.74fr);gap:14px}.cat-scene{height:226px}.cat-panel{padding:19px 15px}.little-note{align-self:stretch;display:flex;flex-direction:column;justify-content:center}.machine-stage{height:405px;max-height:none}.music-section{grid-template-columns:1fr}.music-head p{max-width:none}}
+    @media(max-width:560px){.wrap{width:calc(100% - 24px)}.nav{padding:14px 0 3px}.brand{font-size:13px}.brand-mark{width:32px;height:32px;border-radius:12px}.nav-chip{font-size:9px;padding:6px 8px}.quiet-btn{padding:6px 9px;font-size:10px}.hero{padding:27px 8px 24px}.hero h1{font-size:clamp(35px,10.5vw,53px);margin:13px 0}.hero p{font-size:12px;padding:0 7px}.hero-doodle.l{left:1%;top:25px}.hero-doodle.r{right:0;top:58px}.play-grid{gap:13px}.machine-panel{padding:15px 13px 24px;border-radius:27px}.machine-stage{height:360px;min-height:340px}.stage-note{right:1%;font-size:9px}.machine-copy{font-size:12px}.side-col{display:flex;gap:13px}.cat-panel{border-radius:27px;padding:17px 19px}.cat-scene{height:260px}.speech{max-width:100%;font-size:12px}.cat-actions{gap:7px}.cat-act{min-height:62px;font-size:11px}.little-note{border-radius:24px;padding:17px 20px}.little-note h3{font-size:24px}.little-note p{max-width:300px}.under-grid{gap:13px;margin:13px 0 20px}.shelf-panel,.achieve-panel{border-radius:23px;padding:17px}.music-section{border-radius:24px;padding:19px 15px;gap:17px}.music-title{font-size:25px}.song-btn{padding:8px 7px;gap:6px}.song-btn strong{font-size:10px}.song-btn small{font-size:9px}.song-btn .song-mark{width:28px;height:28px;flex-basis:28px}.reward-dialog{padding:26px 21px 22px}.intro-card{padding:23px 17px 30px}.intro-card h2{font-size:35px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}}
+    body.quiet *,body.quiet *::before,body.quiet *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  </style>
+  <noscript><style>#introBackdrop{display:none!important}.preview-warning{display:block!important}</style></noscript>
+</head>
+<body>
+<div class="page" id="top">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Purrfect Happiness Machine, back to top"><span class="brand-mark" aria-hidden="true">✿</span><span>little joys club <span aria-hidden="true">♡</span></span></a>
+      <div class="nav-right"><span class="nav-chip">20/10 · FOR YOU</span><button type="button" class="quiet-btn" id="quietBtn" aria-pressed="false">☾ Quiet motion</button></div>
+    </nav>
+    <header class="hero">
+      <span class="hero-doodle l" aria-hidden="true">✽</span><span class="hero-doodle r" aria-hidden="true">♡</span>
+      <div class="eyebrow">a tiny special delivery</div>
+      <h1>The Purrfect<br><em>Happiness Machine</em></h1>
+      <p>A pocket-sized world of silly cats, sweet surprises & the little reminder that you are so, so loved. Made especially for you. ♡</p>
+    </header>
+    <main>
+      <div class="preview-warning" role="status">
+        <strong>This is a preview, not the interactive website ♡</strong>
+        If you're viewing this HTML inside the iPhone Files app, the pretty illustrations might display, but JavaScript buttons won't run here. Please publish <b>index.html</b> as a website, then open its <b>https://</b> link in Safari to play with Momo and the capsule machine.<br>
+        <a href="https://app.netlify.com/drop" target="_blank" rel="noopener noreferrer">Publish with Netlify Drop ↗</a>
+      </div>
+      <section class="play-grid" aria-label="Play with the happiness machine and the cat">
+        <div class="panel machine-panel" id="machinePanel">
+          <div class="machine-top"><h2 class="panel-title"><span class="small-icon" aria-hidden="true">✦</span>The smile dispenser</h2><span class="counter"><span aria-hidden="true">◌</span><strong id="spinCount">0</strong> capsules opened</span></div>
+          <div class="machine-stage" id="machineStage">
+            <span class="stage-note" aria-hidden="true">100% good vibes ♡</span><span class="stage-flower f1" aria-hidden="true">✿</span><span class="stage-flower f2" aria-hidden="true">✳</span><span class="stage-flower f3" aria-hidden="true">✧</span>
+            <svg id="gacha-svg" viewBox="0 0 410 500" role="img" aria-label="An illustrated pink capsule machine with a glass globe filled with colorful toys, a pink hand crank, and a capsule chute">
+              <defs>
+                <linearGradient id="machineShell" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffc1d6"/><stop offset=".55" stop-color="#f59cbb"/><stop offset="1" stop-color="#e67da7"/></linearGradient>
+                <linearGradient id="machineFace" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffdde8"/><stop offset="1" stop-color="#ffb8cf"/></linearGradient>
+                <linearGradient id="globe" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#fdfbff" stop-opacity=".95"/><stop offset=".7" stop-color="#eefbff" stop-opacity=".76"/><stop offset="1" stop-color="#f7ddfc" stop-opacity=".95"/></linearGradient>
+                <linearGradient id="gCapsule" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#fff" stop-opacity=".72"/><stop offset="1" stop-color="#fff" stop-opacity=".1"/></linearGradient>
+                <filter id="softMachineShadow"><feGaussianBlur stdDeviation="8"/></filter>
+                <clipPath id="globeClip"><circle cx="205" cy="154" r="119"/></clipPath>
+              </defs>
+              <ellipse cx="205" cy="472" rx="151" ry="17" fill="#ad819a" opacity=".12" filter="url(#softMachineShadow)"/>
+              <!-- little machine feet -->
+              <rect x="91" y="426" width="64" height="35" rx="14" fill="#bc6990"/><rect x="259" y="426" width="64" height="35" rx="14" fill="#bc6990"/>
+              <rect x="96" y="422" width="57" height="28" rx="12" fill="#f099bb"/><rect x="263" y="422" width="57" height="28" rx="12" fill="#f099bb"/>
+              <!-- bottom box -->
+              <rect x="69" y="208" width="274" height="228" rx="36" fill="#c77e9e" opacity=".34"/>
+              <rect x="65" y="202" width="274" height="229" rx="37" fill="url(#machineShell)" stroke="#c96d95" stroke-width="4"/>
+              <rect x="76" y="212" width="252" height="206" rx="29" fill="url(#machineFace)" stroke="#ffe1eb" stroke-width="4"/>
+              <path d="M83 232 Q101 214 134 219 L130 411 Q93 410 83 384Z" fill="#fff" opacity=".11"/>
+              <!-- globe holder rim -->
+              <circle cx="205" cy="156" r="137" fill="#d7779f" stroke="#b46892" stroke-width="4"/>
+              <circle cx="205" cy="153" r="130" fill="#fff5fa" stroke="#ffecf5" stroke-width="7"/>
+              <circle cx="205" cy="154" r="121" fill="url(#globe)" stroke="#eeb2ce" stroke-width="5"/>
+              <g clip-path="url(#globeClip)" class="gacha-capsules">
+                <path d="M87 194 Q205 139 323 193 L338 297 L72 297Z" fill="#fff4fa" opacity=".7"/>
+                <!-- nine decorative capsule toys -->
+                <g transform="translate(137 132) rotate(-18)"><circle r="31" fill="#f2accc" stroke="#fff" stroke-width="3"/><path d="M-31 0A31 31 0 0 0 31 0Z" fill="#d991d5"/><path d="M-30 0H30" stroke="#fff" stroke-width="3"/><circle cy="0" r="6" fill="#fff4dc"/><ellipse cx="-9" cy="-15" rx="13" ry="6" fill="#fff" opacity=".48"/></g>
+                <g transform="translate(207 108) rotate(24)"><circle r="29" fill="#ffe1a4" stroke="#fff" stroke-width="3"/><path d="M-29 0A29 29 0 0 0 29 0Z" fill="#f9b8bf"/><path d="M-29 0H29" stroke="#fff" stroke-width="3"/><circle r="6" fill="#fffaf0"/></g>
+                <g transform="translate(278 138) rotate(18)"><circle r="31" fill="#bfe9d7" stroke="#fff" stroke-width="3"/><path d="M-31 0A31 31 0 0 0 31 0Z" fill="#f4b3dc"/><path d="M-31 0H31" stroke="#fff" stroke-width="3"/><circle r="6" fill="#fff"/></g>
+                <g transform="translate(112 205) rotate(17)"><circle r="35" fill="#dcd0fa" stroke="#fff" stroke-width="3"/><path d="M-35 0A35 35 0 0 0 35 0Z" fill="#a7dcd2"/><path d="M-35 0H35" stroke="#fff" stroke-width="3"/><circle r="6" fill="#fff"/></g>
+                <g transform="translate(176 202) rotate(-22)"><circle r="36" fill="#ffe5ab" stroke="#fff" stroke-width="3"/><path d="M-36 0A36 36 0 0 0 36 0Z" fill="#efb3cf"/><path d="M-36 0H36" stroke="#fff" stroke-width="3"/><circle r="7" fill="#fff"/></g>
+                <g transform="translate(246 210) rotate(8)"><circle r="34" fill="#f8b4cb" stroke="#fff" stroke-width="3"/><path d="M-34 0A34 34 0 0 0 34 0Z" fill="#b8e1d4"/><path d="M-34 0H34" stroke="#fff" stroke-width="3"/><circle r="7" fill="#fff"/></g>
+                <g transform="translate(309 199) rotate(-16)"><circle r="31" fill="#c9c2f7" stroke="#fff" stroke-width="3"/><path d="M-31 0A31 31 0 0 0 31 0Z" fill="#f5d39e"/><path d="M-31 0H31" stroke="#fff" stroke-width="3"/><circle r="6" fill="#fff"/></g>
+                <g transform="translate(136 262) rotate(12)"><circle r="34" fill="#f5cadf" stroke="#fff" stroke-width="3"/><path d="M-34 0A34 34 0 0 0 34 0Z" fill="#dabefa"/><path d="M-34 0H34" stroke="#fff" stroke-width="3"/><circle r="7" fill="#fff"/></g>
+                <g transform="translate(215 274) rotate(-11)"><circle r="38" fill="#bce7d6" stroke="#fff" stroke-width="3"/><path d="M-38 0A38 38 0 0 0 38 0Z" fill="#f4c7ad"/><path d="M-38 0H38" stroke="#fff" stroke-width="3"/><circle r="7" fill="#fff"/></g>
+                <g transform="translate(292 262) rotate(21)"><circle r="34" fill="#ffdda7" stroke="#fff" stroke-width="3"/><path d="M-34 0A34 34 0 0 0 34 0Z" fill="#d7bdf0"/><path d="M-34 0H34" stroke="#fff" stroke-width="3"/><circle r="7" fill="#fff"/></g>
+              </g>
+              <circle cx="205" cy="154" r="121" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="5"/>
+              <path d="M117 94Q145 54 189 49" fill="none" stroke="#fff" stroke-opacity=".82" stroke-width="13" stroke-linecap="round"/>
+              <path d="M105 114L103 122" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="8" stroke-linecap="round"/>
+              <path d="M307 202Q316 172 314 150" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="7" stroke-linecap="round"/>
+              <!-- band overlapping globe -->
+              <rect x="76" y="290" width="260" height="30" rx="14" fill="#d27a9f" stroke="#b97093" stroke-width="2"/>
+              <rect x="86" y="288" width="240" height="23" rx="10" fill="#fcb3cd"/>
+              <circle cx="100" cy="299" r="4" fill="#ffebf2"/><circle cx="310" cy="299" r="4" fill="#ffebf2"/>
+              <!-- heart logo/name plate -->
+              <rect x="93" y="325" width="209" height="42" rx="19" fill="#fff6ed" stroke="#dd9aad" stroke-width="3"/>
+              <path d="M113 343Q106 334 101 343Q98 350 113 360Q126 351 124 343Q119 334 113 343Z" fill="#e997b4"/>
+              <text x="204" y="350" text-anchor="middle" fill="#b36f8d" font-family="Georgia,serif" font-weight="bold" font-size="19">purrfect gacha</text>
+              <!-- dispensing door -->
+              <rect x="101" y="379" width="129" height="66" rx="19" fill="#d37c9e" stroke="#c36b91" stroke-width="3"/>
+              <rect x="111" y="384" width="109" height="51" rx="14" fill="#a55e86"/>
+              <rect x="120" y="392" width="91" height="39" rx="13" fill="#715276" stroke="#f3b9d1" stroke-width="2"/>
+              <path d="M123 415Q164 432 209 415V431H123Z" fill="#c17c9a"/>
+              <g class="machine-popped"><g transform="translate(166 415)"><circle r="20" fill="#ffe8af" stroke="#fff" stroke-width="2"/><path d="M-20 0A20 20 0 0 0 20 0Z" fill="#d8c2f7"/><path d="M-20 0H20" stroke="#fff" stroke-width="2"/><circle r="4" fill="white"/></g></g>
+              <!-- wind up crank -->
+              <circle cx="286" cy="393" r="40" fill="#dc8aa9" stroke="#bb7092" stroke-width="3"/>
+              <circle cx="286" cy="391" r="33" fill="#fff4ea" stroke="#ffe6ef" stroke-width="4"/>
+              <g class="knob"><circle cx="286" cy="391" r="14" fill="#d887aa"/><path d="M286 390V365" stroke="#d887aa" stroke-width="11" stroke-linecap="round"/><circle cx="286" cy="364" r="12" fill="#f9c8db" stroke="#cd7f9f" stroke-width="3"/></g>
+              <path d="M78 412Q82 429 100 428" stroke="#fff" stroke-opacity=".48" stroke-width="6" stroke-linecap="round" fill="none"/>
+              <text x="162" y="469" text-anchor="middle" fill="#b37c94" font-family="sans-serif" font-weight="bold" letter-spacing="2" font-size="9">✦ LITTLE JOYS ✦</text>
+            </svg>
+          </div>
+          <p class="machine-copy">Give the magic button a tap. Every capsule hides a tiny joy.</p>
+          <button class="main-action" id="spinBtn" type="button"><span aria-hidden="true">✧</span> Dispense a little happiness <span aria-hidden="true">♡</span></button>
+          <p class="spin-hint">No coins needed · infinite cuddles included</p>
+        </div>
+        <div class="side-col">
+          <section class="panel cat-panel" aria-labelledby="cat-title">
+            <h2 class="panel-title" id="cat-title"><span class="small-icon" aria-hidden="true">♡</span>Meet Momo, your tiny assistant</h2>
+            <div class="cat-scene">
+              <button type="button" id="catButton" aria-label="Pet Momo the kitten" title="Tap to pet Momo">
+                <svg id="cat-svg" viewBox="0 0 330 300" role="img" aria-label="Momo, a fluffy cream-colored kitten wearing a little heart pendant">
+                  <defs>
+                    <linearGradient id="catCream" x1=".15" y1="0" x2=".7" y2="1"><stop stop-color="#fffdf2"/><stop offset=".8" stop-color="#ffeada"/><stop offset="1" stop-color="#f5ddce"/></linearGradient>
+                    <linearGradient id="catEar" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7bfcb"/><stop offset="1" stop-color="#eba0b4"/></linearGradient>
+                  </defs>
+                  <ellipse cx="166" cy="271" rx="106" ry="15" fill="#d4bdb5" opacity=".26"/>
+                  <!-- wagging tail -->
+                  <g class="cat-tail"><path d="M235 224Q301 243 297 181Q293 151 274 160" fill="none" stroke="#edc9b5" stroke-width="31" stroke-linecap="round"/><path d="M235 222Q302 239 293 180Q290 160 278 159" fill="none" stroke="#fff2df" stroke-width="25" stroke-linecap="round"/></g>
+                  <!-- body -->
+                  <path d="M98 197Q87 170 108 161Q126 153 142 172Q194 157 221 169Q241 185 235 228Q229 270 166 270Q111 271 98 239Z" fill="url(#catCream)" stroke="#d7b4ad" stroke-width="3"/>
+                  <ellipse cx="167" cy="214" rx="47" ry="45" fill="#fff9ed" opacity=".85"/>
+                  <path d="M119 242Q109 260 115 268Q131 276 147 264" fill="#fff5e9" stroke="#d8b8ad" stroke-width="2.5"/>
+                  <path d="M188 260Q204 278 223 268Q228 256 217 240" fill="#fff5e9" stroke="#d8b8ad" stroke-width="2.5"/>
+                  <path d="M127 266L130 259M135 268L138 260M205 267L202 259M213 265L208 259" stroke="#d1b1ae" stroke-width="2" stroke-linecap="round"/>
+                  <!-- ears -->
+                  <path d="M82 119Q65 78 67 49Q68 39 80 46L132 74Z" fill="url(#catCream)" stroke="#d4b4ab" stroke-width="3" stroke-linejoin="round"/>
+                  <path d="M89 102Q79 76 78 63Q95 74 114 90Z" fill="url(#catEar)"/>
+                  <path d="M218 79L265 45Q278 37 277 57Q276 92 251 130Z" fill="url(#catCream)" stroke="#d4b4ab" stroke-width="3" stroke-linejoin="round"/>
+                  <path d="M238 94Q261 68 265 63L261 103Z" fill="url(#catEar)"/>
+                  <!-- whimsical head fluff -->
+                  <path d="M91 94Q116 68 153 72L161 58L174 74Q199 63 223 85Q266 112 258 156Q274 171 256 185Q245 211 220 211Q177 229 112 213Q78 207 71 183Q55 168 71 148Q69 112 91 94Z" fill="url(#catCream)" stroke="#d5b4aa" stroke-width="3.1" stroke-linejoin="round"/>
+                  <path d="M149 81Q163 69 171 85" fill="none" stroke="#fffdfa" stroke-width="7" stroke-linecap="round"/>
+                  <path d="M82 155L66 158L79 170" fill="none" stroke="#d5b4aa" stroke-width="2.8" stroke-linecap="round"/>
+                  <path d="M248 155L264 157L251 171" fill="none" stroke="#d5b4aa" stroke-width="2.8" stroke-linecap="round"/>
+                  <!-- rosy cheeks -->
+                  <ellipse cx="110" cy="162" rx="20" ry="10" fill="#f4b5bc" opacity=".65"/><ellipse cx="219" cy="162" rx="20" ry="10" fill="#f4b5bc" opacity=".65"/>
+                  <g class="eyes-open"><ellipse cx="128" cy="143" rx="7.5" ry="11" fill="#66505c"/><ellipse cx="203" cy="143" rx="7.5" ry="11" fill="#66505c"/><circle cx="130" cy="140" r="2.8" fill="#fff"/><circle cx="205" cy="140" r="2.8" fill="#fff"/></g>
+                  <g class="eyes-sleep"><path d="M118 145Q128 158 139 145M192 145Q203 158 213 145" fill="none" stroke="#66505c" stroke-width="4" stroke-linecap="round"/></g>
+                  <!-- nose mouth -->
+                  <path d="M159 164Q166 169 173 164Q172 160 165 161Q160 161 159 164" fill="#d49ca8"/><path d="M166 168V173Q156 185 147 175M166 173Q176 185 186 175" fill="none" stroke="#927c82" stroke-width="2.4" stroke-linecap="round"/>
+                  <g stroke="#bd9da3" stroke-width="1.7" stroke-linecap="round" opacity=".8"><path d="M103 175L74 170M104 183L78 188M226 175L255 168M225 183L250 190"/></g>
+                  <!-- collar -->
+                  <path d="M136 206Q168 218 200 204" fill="none" stroke="#efa7c0" stroke-width="8" stroke-linecap="round"/>
+                  <path d="M166 215C152 201 145 221 166 237C186 224 180 201 166 215Z" fill="#e69bb6" stroke="#fff2ee" stroke-width="2"/>
+                  <path d="M165 220L165 230" stroke="#fff8f6" stroke-width="2" stroke-linecap="round"/>
+                  <!-- bow appears on command -->
+                  <g class="cat-bow"><path d="M238 124Q211 94 207 128Q213 149 239 133Q259 152 274 135Q284 106 246 124Z" fill="#cbaaf3" stroke="#a58acf" stroke-width="2"/><circle cx="242" cy="127" r="8" fill="#eedcfb" stroke="#b49bdc" stroke-width="2"/><circle cx="242" cy="127" r="3" fill="#fff"/></g>
+                  <g class="cat-treat"><path d="M173 83L187 61L204 77L204 94L175 102Z" fill="#eeaa73" stroke="#c78b69" stroke-width="2"/><circle cx="190" cy="85" r="3" fill="#d28f6e"/></g>
+                  <!-- little background stars -->
+                  <path d="M52 116l4 10 10 4-10 4-4 10-4-10-10-4 10-4Z" fill="#f2c5d4"/><path d="M275 103l3 8 8 3-8 3-3 8-3-8-8-3 8-3Z" fill="#e5cdea"/>
+                </svg>
+              </button>
+              <span class="cat-hint" aria-hidden="true">tap to pet! ↗</span>
+            </div>
+            <p class="speech" id="catSpeech" aria-live="polite">mew! i'm Momo, your totally qualified happiness assistant. ♡</p>
+            <div class="cat-actions" role="group" aria-label="Play with Momo">
+              <button class="cat-act" type="button" data-cat-action="pet"><span aria-hidden="true">♡</span>Pet</button>
+              <button class="cat-act" type="button" data-cat-action="treat"><span aria-hidden="true">◕</span>Treat</button>
+              <button class="cat-act" type="button" data-cat-action="bow"><span aria-hidden="true">✿</span>Bow</button>
+              <button class="cat-act" type="button" data-cat-action="dance"><span aria-hidden="true">♫</span>Dance</button>
+              <button class="cat-act" type="button" data-cat-action="nap"><span aria-hidden="true">☾</span>Nap</button>
+            </div>
+            <p class="micro">No instructions. No effort. Just one very silly cat.</p>
+          </section>
+          <aside class="little-note" aria-label="A secret note">
+            <div class="mini-eyebrow">sealed with a little ♡</div>
+            <h3>A secret capsule<br>just for you...</h3>
+            <p id="secretHint">Three little surprises, and this special one opens. (Or just enjoy the cat!)</p>
+            <button type="button" class="outline-btn" id="letterBtn" disabled>✉ &nbsp; A tiny secret · 0/3</button>
+          </aside>
+        </div>
+      </section>
+      <div class="under-grid">
+        <section class="panel shelf-panel" aria-labelledby="shelfTitle"><div class="subheading"><h2 id="shelfTitle">♡ Your little collection</h2><span>Tap to revisit</span></div><div id="shelfList" class="shelf-list"><div class="empty-shelf">Your first little treasure is waiting in the machine above. ✧</div></div></section>
+        <section class="panel achieve-panel" aria-labelledby="achieveTitle"><div class="subheading"><h2 id="achieveTitle">✧ Tiny happy moments</h2><span>just for fun</span></div><div class="badges"><span class="tiny-badge" id="badge-first"><i aria-hidden="true">✿</i> First smile</span><span class="tiny-badge" id="badge-cat"><i aria-hidden="true">♡</i> Cat bestie</span><span class="tiny-badge" id="badge-letter"><i aria-hidden="true">✉</i> Secret keeper</span></div></section>
+      </div>
+      <section class="music-section" id="music" aria-labelledby="musicTitle">
+        <div class="music-head"><span class="music-pill">♪ OPTIONAL LITTLE SOUNDTRACK</span><h2 class="music-title" id="musicTitle"><span aria-hidden="true">♫</span> Chill music corner</h2><p>Six favorite songs for a soft afternoon, including two hits by The Weeknd. Choose “Open gift &amp; start music” to request playback with your first tap. If your phone blocks it, use the Spotify play button.</p><div class="song-tabs" id="songTabs" role="group" aria-label="Choose a song">
+          <button class="song-btn active" type="button" data-song="0" aria-pressed="true"><span class="song-mark" aria-hidden="true">♫</span><span><strong>From The Start</strong><small>Laufey</small></span></button>
+          <button class="song-btn" type="button" data-song="1" aria-pressed="false"><span class="song-mark" aria-hidden="true">♪</span><span><strong>Glue Song</strong><small>beabadoobee & Clairo</small></span></button>
+          <button class="song-btn" type="button" data-song="2" aria-pressed="false"><span class="song-mark" aria-hidden="true">✧</span><span><strong>BIRDS OF A FEATHER</strong><small>Billie Eilish</small></span></button>
+          <button class="song-btn" type="button" data-song="3" aria-pressed="false"><span class="song-mark" aria-hidden="true">☼</span><span><strong>golden hour</strong><small>JVKE</small></span></button>
+          <button class="song-btn" type="button" data-song="4" aria-pressed="false"><span class="song-mark" aria-hidden="true">♡</span><span><strong>Save Your Tears</strong><small>The Weeknd</small></span></button>
+          <button class="song-btn" type="button" data-song="5" aria-pressed="false"><span class="song-mark" aria-hidden="true">✦</span><span><strong>Blinding Lights</strong><small>The Weeknd</small></span></button>
+        </div></div>
+        <div class="player-card"><div class="player-top"><span class="player-now" id="nowPlaying">♪ From The Start · Laufey</span><span class="player-status" id="playerStatus">music is off</span></div>
+          <div class="spotify-host" id="spotifyHost" aria-label="Spotify embedded music player"><iframe id="spotifyFrame" title="Spotify music player" src="https://open.spotify.com/embed/track/1Ukxccao1BlWrPhYkcXbwZ?utm_source=generator" loading="eager" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+          <div class="music-fallback" id="musicFallback" role="status" aria-live="polite" hidden>♪ If you can't hear music, tap ▶ in Spotify below. iPhone browsers and Spotify may require a direct tap in their player.</div>
+          <div class="player-tools"><button type="button" class="player-ctrl" id="musicToggle" aria-label="Play or pause the selected song">▶ Play / pause</button><a class="spotify-link" id="spotifyLink" href="https://open.spotify.com/track/1Ukxccao1BlWrPhYkcXbwZ" target="_blank" rel="noopener noreferrer">Open in Spotify ↗</a></div>
+          <p class="player-disclaimer" id="musicNote">Official Spotify embeds require internet. Playback and full-track access depend on Spotify account, region, and device. iPhone autoplay cannot be guaranteed.</p>
+        </div>
+      </section>
+    </main>
+    <footer><div class="footer-line"></div>Made with a little bit of magic and an unreasonable amount of affection <span class="footer-heart">♡</span><br>Happy International Women's Day · March 8</footer>
+  </div>
+</div>
+
+<div class="intro-backdrop" id="introBackdrop" role="presentation">
+  <section class="intro-card" role="dialog" aria-modal="true" aria-labelledby="introTitle" aria-describedby="introDescription" tabindex="-1" id="introDialog">
+    <span class="intro-star" aria-hidden="true">✧ &nbsp; ♡ &nbsp; ✧</span>
+    <div class="intro-illustration" aria-hidden="true"><svg viewBox="0 0 250 195"><defs><linearGradient id="letterGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffe2ed"/><stop offset="1" stop-color="#f2acc9"/></linearGradient></defs><ellipse cx="125" cy="182" rx="97" ry="9" fill="#dcaaba" opacity=".2"/><path d="M41 70L125 15L210 70V166H41Z" fill="#fff2f7" stroke="#dca4bb" stroke-width="3" stroke-linejoin="round"/><rect x="61" y="34" width="129" height="113" rx="5" fill="#fffdf8" stroke="#ebc9d1" stroke-width="2" transform="rotate(-4 125 90)"/><path d="M83 61H163M83 76H157M83 91H140" stroke="#eccbd6" stroke-width="6" stroke-linecap="round"/><path d="M41 74L124 131L210 74V166H41Z" fill="url(#letterGrad)" stroke="#d9a1b8" stroke-width="3"/><path d="M41 165L107 112M210 165L145 112" stroke="#dfacc0" stroke-width="3"/><path d="M41 166L125 111L210 166Z" fill="#ffe1eb" stroke="#d9a1b8" stroke-width="3" stroke-linejoin="round"/><circle cx="125" cy="125" r="19" fill="#fff6ea" stroke="#dcb2c0" stroke-width="2"/><path d="M125 130C105 115 121 108 125 118C130 106 145 118 125 130Z" fill="#e291af"/><path d="M26 48l5 10 10 4-10 4-5 10-5-10-10-4 10-4Z" fill="#f2c4d8"/><path d="M222 30l4 9 9 4-9 4-4 9-4-9-9-4 9-4Z" fill="#e5c8f3"/><path d="M224 139l3 7 7 3-7 3-3 7-3-7-7-3 7-3Z" fill="#eed1ae"/></svg></div>
+    <div class="overline">one very special delivery</div><h2 id="introTitle">Hello, <em>lovely you!</em></h2>
+    <p id="introDescription">Happy Women's Day! Someone sent a pocketful of sunshine, ridiculous cat behavior, and a few little surprises with your name all over them.</p>
+    <button class="main-action" type="button" id="openGiftBtn">Open gift &amp; start music &nbsp; ♪</button>
+    <button class="later-btn" type="button" id="skipIntroBtn">Open quietly (no music)</button>
+    <p class="intro-music-hint">On iPhone, Safari may require one more tap inside Spotify to hear a song.</p>
+  </section>
+</div>
+<div class="modal-backdrop" id="rewardBackdrop" hidden>
+  <section class="reward-dialog" role="dialog" aria-modal="true" aria-labelledby="rewardTitle" tabindex="-1" id="rewardDialog"><button class="close-btn" id="closeRewardBtn" type="button" aria-label="Close surprise">×</button><div id="rewardContents"></div></section>
+</div>
+<div class="celebration-layer" id="celebrationLayer" aria-hidden="true"></div>
+<div class="music-hint-banner" id="musicHintBanner" hidden><span>♪ Music blocked on iPhone? One tap in Spotify should help.</span><button type="button" id="jumpToMusic">Find Play ↓</button><button type="button" class="hint-dismiss" id="dismissMusicHint" aria-label="Dismiss music tip">×</button></div>
+<div class="toast" role="status" aria-live="polite" id="toast"></div><div class="visually-hidden" aria-live="polite" id="announcement"></div>
+<script>
+  'use strict';
+  // ====== PERSONALIZE HERE ======
+  const GIFT = {
+    greetingName: 'Ngoc Anh',
+    signOff: 'your very grateful friend',
+    letter: `Happy Women's Day, dear! ♡\n\nI wish I could send you a whole garden of flowers, but for now, here is a tiny world with unlimited cats, strange little fortunes, and lots of love.\n\nYou deserve to be celebrated for who you are — your kindness, your weird little jokes, your bright ideas, and all the ways you make ordinary moments more wonderful. There is absolutely no need to be cheerful every second. You are wonderful on the quiet days, too.\n\nThank you for being you. Whenever you're ready, I owe you a real-life treat and the biggest catch-up. Until then, Momo has been instructed to guard your happiness (he has no qualifications whatsoever).\n\nNo need to reply. Just wanted you to know I'm thinking of you. ♡`
+  };
+
+  const SONGS = [
+    {title:'From The Start',artist:'Laufey',id:'1Ukxccao1BlWrPhYkcXbwZ'},
+    {title:'Glue Song',artist:'beabadoobee & Clairo',id:'0tMMPZEt6Gyrl9FI8zSicm'},
+    {title:'BIRDS OF A FEATHER',artist:'Billie Eilish',id:'6dOtVTDdiauQNBQEDOtlAB'},
+    {title:'golden hour',artist:'JVKE',id:'5odlY52u43F5BjByhxg7wg'},
+    {title:'Save Your Tears',artist:'The Weeknd',id:'5QO79kh1waicV47BqGRL3g'},
+    {title:'Blinding Lights',artist:'The Weeknd',id:'0VjIjW4GlUZAMYd2vXMi3b'}
+  ];
+  // More than 25 unique cards. A shuffle bag avoids repeats until all cards have been drawn.
+  const SURPRISES = [
+    {kind:'meme',title:'Professional nap consultant',body:'Momo has reviewed the situation and suggests: one blanket, one snack, and absolutely no responsibilities.',top:'I HAVE A JOB',bottom:'IT IS NAPPING',face:'sleepy'},
+    {kind:'meme',title:'A suspiciously small manager',body:'A tiny cat would like to remind you that you are the boss of your own cozy little universe.',top:'VERY IMPORTANT',bottom:'VERY SMOL',face:'boss'},
+    {kind:'meme',title:'Cat math',body:'One treat for Momo + one treat for you = a mathematically excellent day.',top:'I DID THE MATH',bottom:'MORE SNACKS',face:'happy'},
+    {kind:'meme',title:'The dramatic entrance',body:'Momo walked into a room, forgot why, and decided to look mysterious instead.',top:'WALKED IN',bottom:'FORGOT EVERYTHING',face:'shocked'},
+    {kind:'meme',title:'A highly trained assistant',body:'Momo spent four years at Meow University. His degree is in knocking water off tables.',top:'MY DEGREE?',bottom:'CHAOS STUDIES',face:'boss'},
+    {kind:'meme',title:'The no-thoughts club',body:'Your invitation to the prestigious No Thoughts, Just Tiny Beans Society has been approved.',top:'HEAD EMPTY',bottom:'HEART FULL',face:'happy'},
+    {kind:'meme',title:'The snack inspector',body:'This cat takes quality control very seriously. Every biscuit must be inspected with his mouth.',top:'QUALITY CONTROL',bottom:'NOM NOM NOM',face:'hungry'},
+    {kind:'fortune',title:'A very official forecast',body:'Tomorrow there is a 97% chance you will be adorable. The other 3% is a rounding error.',icon:'✧'},
+    {kind:'fortune',title:'Your lucky prophecy',body:'A lovely little surprise is on its way. It may be a compliment. It may be a croissant.',icon:'☼'},
+    {kind:'fortune',title:'The cookie has spoken',body:'You will soon discover a new talent: being ridiculously charming without even trying.',icon:'✦'},
+    {kind:'fortune',title:'A certified good omen',body:'Today the stars say: comfy socks, a favorite song, and a wonderfully uneventful afternoon.',icon:'☾'},
+    {kind:'fortune',title:'Extremely scientific fortune',body:'The universe would like to formally confirm: your vibe remains excellent.',icon:'✳'},
+    {kind:'compliment',title:'Rare human detected',body:'Your particular combination of kindness, humor, and wonderful weirdness is one of one.',icon:'♡'},
+    {kind:'compliment',title:'Very unfair advantage',body:'You make ordinary conversations feel like little adventures. Not everyone can do that.',icon:'✿'},
+    {kind:'compliment',title:'Secret superpower',body:'You have a way of making people feel more comfortable just by being yourself.',icon:'✧'},
+    {kind:'compliment',title:'A personal award',body:'Congratulations. You have won the International Award for Being Ridiculously Lovely. No appeals accepted.',icon:'♕'},
+    {kind:'compliment',title:'Tiny reminder',body:'You do not have to do anything impressive to deserve affection, rest, or a little joy.',icon:'♡'},
+    {kind:'joke',title:'Very punny business',body:'Why did the cat sit on the computer? He wanted to keep an eye on the mouse.',icon:'✻'},
+    {kind:'joke',title:'Breaking mews',body:'Momo has been arrested for excessive cuteness. The jury is entirely made of kittens.',icon:'⚝'},
+    {kind:'joke',title:'A terrible cat joke',body:'What is a cat’s favorite color? Purr-ple. Sorry. Momo made me say that.',icon:'✳'},
+    {kind:'joke',title:'An important question',body:'If cats are liquid, why has no one invented a cat-flavored smoothie? (Please do not.)',icon:'?!'},
+    {kind:'joke',title:'Business plan',body:'Momo wants to start a bakery. His signature product: loaf. Just loaf. He is the loaf.',icon:'♨'},
+    {kind:'friendship',title:'A pocket-sized hug',body:'No need to say anything or do anything. Consider this a small, warm hug from a friend who is thinking of you.',icon:'♡'},
+    {kind:'friendship',title:'A little thank-you',body:'I am very glad the world arranged for our paths to cross. Life is nicer with you in it.',icon:'✿'},
+    {kind:'friendship',title:'Something to look forward to',body:'One day soon: a cozy café, something delicious, and an excessively long catch-up.',icon:'☕'},
+    {kind:'friendship',title:'For the quiet moments',body:'Even on a day when you do absolutely nothing, you are still someone worth celebrating.',icon:'☾'},
+    {kind:'tiny',title:'Your miniature holiday',body:'For the next ten seconds, you are officially the Queen of Cozy. Your royal duties: zero.',icon:'♛'},
+    {kind:'tiny',title:'Emergency confetti coupon',body:'Redeemable for one tiny explosion of harmless imaginary confetti. Redeeming now!',icon:'✺',confetti:true},
+    {kind:'tiny',title:'The sunflower committee',body:'A committee of twelve imaginary sunflowers has voted unanimously that you are their favorite human.',icon:'☼'},
+    {kind:'tiny',title:'A tiny treasure',body:'You have discovered a pocket star. It is yours to keep. (It thinks you are pretty great.)',icon:'☆'},
+    {kind:'tiny',title:'Invisible cozy blanket',body:'Poof! You have been wrapped in an invisible marshmallow blanket. Very fashionable.',icon:'❀'},
+    {kind:'tiny',title:'Official bestie seal',body:'This capsule contains a lifetime pass to terrible jokes and wholehearted friendship. Terms: no expiration.',icon:'♧'}
+  ];
+  const $=s=>document.querySelector(s);
+  const storeKey='purrfectHappinessMachine.v1';
+  let stored={};try{stored=JSON.parse(localStorage.getItem(storeKey)||'{}')||{}}catch(_e){}
+  const state={spins:Number.isInteger(stored.spins)&&stored.spins>=0?stored.spins:0,catActions:Number.isInteger(stored.catActions)&&stored.catActions>=0?stored.catActions:0,letterOpened:!!stored.letterOpened,history:Array.isArray(stored.history)?stored.history.filter(i=>Number.isInteger(i)&&i>=0&&i<SURPRISES.length).slice(0,12):[],bag:Array.isArray(stored.bag)?stored.bag.filter(i=>Number.isInteger(i)&&i>=0&&i<SURPRISES.length):[],bow:!!stored.bow};
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+  let spinning=false,lastModalFocus=null,toastTimer=null,catTimer=null,songIndex=0,spotifyController=null,spotifyReady=false;
+  function persist(){try{localStorage.setItem(storeKey,JSON.stringify({spins:state.spins,catActions:state.catActions,letterOpened:state.letterOpened,history:state.history,bag:state.bag,bow:state.bow}))}catch(_e){}}
+  function shuffleBag(){const a=Array.from({length:SURPRISES.length},(_,i)=>i);for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+  function toast(message){const el=$('#toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2800)}
+  function announce(msg){$('#announcement').textContent='';setTimeout(()=>{$('#announcement').textContent=msg},25)}
+  function celebrate(count=18){if(reduced.matches||document.body.classList.contains('quiet'))return;const layer=$('#celebrationLayer');const symbols=['♡','✦','✿','·','✧','❀'];for(let i=0;i<count;i++){const s=document.createElement('span');s.className='particle';s.textContent=symbols[Math.floor(Math.random()*symbols.length)];s.style.left=(Math.random()*100)+'%';s.style.color=['#f0a3bf','#d4baf3','#b4dccb','#eec8a7'][i%4];s.style.fontSize=(12+Math.random()*14)+'px';s.style.animationDelay=(Math.random()*.55)+'s';s.style.setProperty('--drift',(Math.random()*180-90)+'px');layer.appendChild(s);setTimeout(()=>s.remove(),3300)}}
+  function updateMeta(){ $('#spinCount').textContent=state.spins;const progress=Math.min(3,state.spins);const btn=$('#letterBtn');btn.disabled=state.spins<3;btn.textContent=state.spins>=3?'✉  Open your special capsule':'✉  A tiny secret · '+progress+'/3';$('#secretHint').textContent=state.spins>=3?'A little note from someone who thinks you are wonderful. Open whenever you want.':'Three little surprises, and this special one opens. (Or just enjoy the cat!)';$('#badge-first').classList.toggle('unlocked',state.spins>0);$('#badge-cat').classList.toggle('unlocked',state.catActions>=4);$('#badge-letter').classList.toggle('unlocked',state.letterOpened);$('#catButton').classList.toggle('with-bow',state.bow);renderShelf()}
+  function renderShelf(){const list=$('#shelfList');list.replaceChildren();if(!state.history.length){const e=document.createElement('div');e.className='empty-shelf';e.textContent='Your first little treasure is waiting in the machine above. ✧';list.appendChild(e);return}state.history.forEach(i=>{const item=SURPRISES[i],btn=document.createElement('button');btn.type='button';btn.className='shelf-item';btn.setAttribute('aria-label','Revisit '+item.title);const ico=document.createElement('span');ico.className='s-ico';ico.setAttribute('aria-hidden','true');ico.textContent=item.kind==='meme'?'ᓚᘏᗢ':(item.icon||'✦');const name=document.createElement('span');name.className='s-name';name.textContent=item.title;btn.append(ico,name);btn.addEventListener('click',()=>showReward(i,false));list.appendChild(btn)})}
+  function catSay(text){$('#catSpeech').textContent=text}
+  function catAction(type){const btn=$('#catButton');const phrases={pet:['purr purr... you have excellent head-pat technique.','i have never felt so professionally appreciated. ♡','one pet = one thousand imaginary biscuits.'],treat:['chomp! five stars. would snack again.','is this a treat? for ME? my lawyer is crying.','nom nom. please respect my privacy while chewing.'],bow:['fashion icon reporting for duty!','this bow adds 300% more elegance to my loaf.','you may now address me as Sir Fluffington.'],dance:['the dance floor is legally my territory.','meow meow! this is my world tour.','i learned this move from a very talented potato.'],nap:['i am recharging my emotional support batteries... zzz.','important meeting with my pillow.','zzzz... dreaming of infinite tuna...']};clearTimeout(catTimer);btn.classList.remove('pet-anim','dance-anim','treat-anim','nap-anim','bow-anim','sleeping','eating');void btn.offsetWidth;btn.classList.add((type==='dance'?'dance':type==='nap'?'nap':type==='bow'?'bow':type==='treat'?'treat':'pet')+'-anim');if(type==='nap')btn.classList.add('sleeping');if(type==='treat')btn.classList.add('eating');if(type==='bow')state.bow=!state.bow;state.catActions++;catSay(phrases[type][Math.floor(Math.random()*phrases[type].length)]);updateMeta();persist();if(state.catActions===4)toast('♡ Momo has promoted you to Cat Bestie!');if(type!=='nap')catTimer=setTimeout(()=>{btn.classList.remove('pet-anim','dance-anim','treat-anim','bow-anim','eating')},(type==='dance'?2300:1100));else catTimer=setTimeout(()=>{btn.classList.remove('nap-anim','sleeping');catSay('i awoke from the coziest little dream. ♡')},5500)}
+  function responseToReward(item){const reactions={meme:['i am a meme now. this is my legacy.','i respectfully deny all accusations.'],fortune:['the stars told me this personally.','mystical meow noises! ✧'],compliment:['facts! i checked with the cat council.','you really are a good egg. ♡'],joke:['that joke deserves exactly two polite purrs.','please tip your comedy cat in snacks.'],friendship:['i am sending you tiny invisible hugs.','that one made even my whiskers feel warm.'],tiny:['another delivery successfully meowed.','your treasure collection grows!']};const r=reactions[item.kind];catSay(r[Math.floor(Math.random()*r.length)])}
+  function memeArt(face){const sleepy=face==='sleepy',shocked=face==='shocked',boss=face==='boss',hungry=face==='hungry';return `<svg class="meme-cat" viewBox="0 0 120 100" aria-hidden="true"><path d="M17 42L18 6L47 25L73 25L103 6L103 42Q114 80 80 90Q43 104 17 77Z" fill="#fff5df" stroke="#bb9ca1" stroke-width="3" stroke-linejoin="round"/><path d="M24 34L24 19L39 30M81 30L97 20L96 34" fill="#f3b3bc"/><ellipse cx="34" cy="65" rx="12" ry="6" fill="#f4b9c3"/><ellipse cx="87" cy="65" rx="12" ry="6" fill="#f4b9c3"/>${sleepy?'<path d="M36 49Q45 61 53 49M68 49Q76 61 85 49" stroke="#6f5364" stroke-width="3.5" stroke-linecap="round" fill="none"/>':shocked?'<circle cx="44" cy="53" r="7" fill="#594859"/><circle cx="77" cy="53" r="7" fill="#594859"/>':boss?'<path d="M35 48L52 53M68 53L85 48" stroke="#594859" stroke-width="4" stroke-linecap="round"/><ellipse cx="44" cy="56" rx="4" ry="5" fill="#594859"/><ellipse cx="76" cy="56" rx="4" ry="5" fill="#594859"/>':'<path d="M38 51Q46 60 54 51M67 51Q76 60 85 51" stroke="#6f5364" stroke-width="3.5" stroke-linecap="round" fill="none"/>'}<path d="M54 67Q60 72 66 67L60 64Z" fill="#d39cab"/>${hungry?'<ellipse cx="60" cy="76" rx="9" ry="8" fill="#c68ea5"/>':'<path d="M60 70Q52 78 47 73M60 70Q68 78 73 73" fill="none" stroke="#987b85" stroke-width="2" stroke-linecap="round"/>'}<path d="M31 73L12 70M30 78L12 81M89 73L108 70M89 78L108 81" stroke="#b99ea5" stroke-width="1.6" stroke-linecap="round"/></svg>`}
+  function openModal(){lastModalFocus=document.activeElement;$('#rewardBackdrop').hidden=false;document.body.style.overflow='hidden';$('#rewardDialog').focus()}
+  function closeModal(){if($('#rewardBackdrop').hidden)return;$('#rewardBackdrop').hidden=true;$('#rewardBackdrop').classList.remove('letter-mode');document.body.style.overflow='';if(lastModalFocus&&document.contains(lastModalFocus))lastModalFocus.focus()}
+  function showReward(index,newReward){const s=SURPRISES[index],content=$('#rewardContents');content.replaceChildren();$('#rewardBackdrop').classList.remove('letter-mode');const label=document.createElement('span');label.className='reward-label';label.textContent=s.kind==='meme'?'a meme from Momo':({fortune:'a tiny fortune',compliment:'a special compliment',joke:'cat-approved comedy',friendship:'a note from a friend',tiny:'a magical surprise'}[s.kind]);const illustration=document.createElement('div');illustration.className='reward-illustration';if(s.kind==='meme'){const meme=document.createElement('div');meme.className='meme-frame';// Fixed hard-coded illustration markup; messages are added with textContent.
+      const top=document.createElement('div');top.className='meme-top';top.textContent=s.top;const pict=document.createElement('div');pict.innerHTML=memeArt(s.face);const bottom=document.createElement('div');bottom.className='meme-bottom';bottom.textContent=s.bottom;meme.append(top,pict,bottom);illustration.appendChild(meme)
+    }else{const symbol=document.createElement('span');symbol.className='reward-sigil';symbol.textContent=s.icon||'✧';illustration.appendChild(symbol)}
+    const title=document.createElement('h2');title.id='rewardTitle';title.textContent=s.title;const body=document.createElement('p');body.className='reward-body';body.textContent=s.body;const action=document.createElement('button');action.type='button';action.className='main-action';action.textContent='Keep this little joy ♡';action.addEventListener('click',closeModal);const footer=document.createElement('p');footer.className='reward-footer';footer.textContent=newReward?'surprise '+state.spins+' · a little gift just for you':'a saved little joy · yours to revisit';content.append(label,illustration,title,body,action,footer);openModal();if(s.confetti&&newReward)celebrate(28)}
+  function showLetter(){state.letterOpened=true;persist();updateMeta();$('#rewardBackdrop').classList.add('letter-mode');const content=$('#rewardContents');content.replaceChildren();const label=document.createElement('span');label.className='reward-label';label.textContent='your one-of-a-kind secret capsule';const heading=document.createElement('h2');heading.id='rewardTitle';heading.className='letter-head';heading.textContent='A little letter for you ♡';const copy=document.createElement('div');copy.className='letter-copy';copy.textContent=GIFT.letter;const sign=document.createElement('p');sign.className='letter-sign';sign.textContent='with love, '+GIFT.signOff;const button=document.createElement('button');button.type='button';button.className='main-action';button.textContent='Keep this little note ♡';button.addEventListener('click',closeModal);content.append(label,heading,copy,sign,button);openModal();celebrate(13);catSay('some surprises are made of words, and some are made of love. ♡')}
+  function spin(){if(spinning)return;spinning=true;const button=$('#spinBtn');button.disabled=true;button.textContent='Momo is working his magic…';const stage=$('#machineStage');stage.classList.remove('spinning');void stage.offsetWidth;stage.classList.add('spinning');if(!state.bag.length)state.bag=shuffleBag();const i=state.bag.pop();state.spins++;state.history.unshift(i);state.history=state.history.slice(0,12);persist();updateMeta();const item=SURPRISES[i];responseToReward(item);setTimeout(()=>{stage.classList.remove('spinning');button.disabled=false;button.innerHTML='<span aria-hidden="true">✧</span> Dispense a little happiness <span aria-hidden="true">♡</span>';spinning=false;showReward(i,true);if(state.spins===3)toast('✉ Your special secret capsule is ready!')},(reduced.matches||document.body.classList.contains('quiet'))?150:1120)}
+  // Spotify's official iframe API offers programmatic play, but browsers may
+  // reject unrequested audio, especially on iOS. One tap on the welcome gift
+  // is an explicit request to start music. Never claim playback until an event
+  // from the Spotify controller confirms that it began.
+  let spotifyEmbedReady=false, musicRequested=false, isMusicPlaying=false;
+  let firstPlayAttempted=false, playbackCheckTimer=null;
+  function musicFallbackVisible(show){$('#musicFallback').hidden=!show;if(!show)$('#musicHintBanner').hidden=true}
+  function updateSongUI(){
+    const song=SONGS[songIndex];
+    $('#nowPlaying').textContent='♪ '+song.title+' · '+song.artist;
+    $('#spotifyLink').href='https://open.spotify.com/track/'+song.id;
+    document.querySelectorAll('[data-song]').forEach(btn=>{
+      const on=Number(btn.dataset.song)===songIndex;
+      btn.classList.toggle('active',on);btn.setAttribute('aria-pressed',String(on));
+    });
+  }
+  function requestMusicStart(){
+    musicRequested=true;
+    firstPlayAttempted=true;
+    $('#musicToggle').textContent='Ⅱ Pause / ▶ Play';
+    $('#playerStatus').textContent='trying to play…';
+    musicFallbackVisible(true);
+    // In browsers where Spotify has not yet created its controller, remember
+    // the preference and attempt once Spotify signals ready.
+    try {
+      if(spotifyController && spotifyEmbedReady){
+        spotifyController.play();
+      } else {
+        $('#playerStatus').textContent='Spotify loading…';
+      }
+    } catch(_e){$('#playerStatus').textContent='tap play in Spotify'}
+    clearTimeout(playbackCheckTimer);
+    playbackCheckTimer=setTimeout(()=>{
+      if(!isMusicPlaying && musicRequested){
+        $('#playerStatus').textContent='tap ▶ in Spotify to start';
+        musicFallbackVisible(true);
+        if($('#introBackdrop').hidden)$('#musicHintBanner').hidden=false;
+      }
+    },3000);
+  }
+  function pauseMusic(){
+    musicRequested=false;
+    try{if(spotifyController && spotifyEmbedReady)spotifyController.pause()}catch(_e){}
+    $('#musicToggle').textContent='▶ Play';
+    $('#playerStatus').textContent='paused';
+  }
+  function chooseSong(index){
+    if(index<0||index>=SONGS.length)return;
+    songIndex=index;updateSongUI();
+    const shouldPlay=musicRequested || isMusicPlaying;
+    $('#playerStatus').textContent='changing song…';
+    if(spotifyController){
+      try{
+        spotifyController.loadEntity('spotify:track:'+SONGS[index].id);
+        // This function runs directly from a real song selection tap.
+        if(shouldPlay)requestMusicStart();
+      }catch(_e){fallbackSong(index)}
+    }else{fallbackSong(index);if(shouldPlay)musicFallbackVisible(true)}
+  }
+  function fallbackSong(index){
+    const frame=$('#spotifyFrame');
+    if(frame)frame.src='https://open.spotify.com/embed/track/'+SONGS[index].id+'?utm_source=generator';
+    $('#playerStatus').textContent='tap ▶ inside Spotify';
+    musicFallbackVisible(true);
+  }
+  window.onSpotifyIframeApiReady=(SpotifyAPI)=>{
+    const host=$('#spotifyHost');
+    const old=$('#spotifyFrame');
+    if(old)old.remove();
+    try{
+      SpotifyAPI.createController(host,{width:'100%',height:'152',uri:'spotify:track:'+SONGS[songIndex].id},controller=>{
+        spotifyController=controller;spotifyReady=true;
+        $('#playerStatus').textContent='tap to play';
+        controller.addListener('ready',()=>{
+          spotifyEmbedReady=true;
+          $('#playerStatus').textContent=musicRequested?'starting your song…':'ready when you are';
+          if(musicRequested && !isMusicPlaying){
+            try{controller.play()}catch(_e){musicFallbackVisible(true)}
+          }
+        });
+        controller.addListener('playback_started',()=>{
+          isMusicPlaying=true;
+          musicRequested=true;
+          musicFallbackVisible(false);
+          $('#playerStatus').textContent='now playing ♪';
+          $('#musicToggle').textContent='Ⅱ Pause';
+        });
+        controller.addListener('playback_update',event=>{
+          if(!event || !event.data || event.data.isBuffering)return;
+          const paused=!!event.data.isPaused;
+          isMusicPlaying=!paused;
+          if(!paused){
+            musicRequested=true;
+            musicFallbackVisible(false);
+            $('#musicToggle').textContent='Ⅱ Pause';
+            $('#playerStatus').textContent='now playing ♪';
+          }else{
+            $('#musicToggle').textContent='▶ Play';
+            $('#playerStatus').textContent=musicRequested?'tap ▶ in Spotify if blocked':'paused';
+          }
+        });
+      });
+    }catch(_e){
+      const f=document.createElement('iframe');f.id='spotifyFrame';f.title='Spotify music player';
+      f.src='https://open.spotify.com/embed/track/'+SONGS[songIndex].id;
+      f.allow='autoplay; encrypted-media; picture-in-picture';
+      host.appendChild(f);
+      $('#playerStatus').textContent='tap ▶ inside Spotify';
+      musicFallbackVisible(true);
+    }
+  };
+  // Run all interface wiring after markup exists.
+  function init(){$('#introTitle em').textContent=GIFT.greetingName+'!';updateMeta();$('#jumpToMusic').addEventListener('click',()=>{$('#musicHintBanner').hidden=true;$('#music').scrollIntoView({block:'center',behavior:reduced.matches?'instant':'smooth'})});$('#dismissMusicHint').addEventListener('click',()=>{$('#musicHintBanner').hidden=true});$('#spinBtn').addEventListener('click',spin);$('#catButton').addEventListener('click',()=>catAction('pet'));document.querySelectorAll('[data-cat-action]').forEach(b=>b.addEventListener('click',()=>catAction(b.dataset.catAction)));$('#letterBtn').addEventListener('click',showLetter);$('#closeRewardBtn').addEventListener('click',closeModal);$('#rewardBackdrop').addEventListener('click',event=>{if(event.target===$('#rewardBackdrop'))closeModal()});$('#rewardBackdrop').addEventListener('keydown',event=>{if(event.key!=='Tab')return;const focusable=[...$('#rewardDialog').querySelectorAll('button:not([disabled]),a[href]')];if(!focusable.length)return;const first=focusable[0],last=focusable[focusable.length-1];if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}});document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!$('#rewardBackdrop').hidden)closeModal()});$('#quietBtn').addEventListener('click',()=>{const on=document.body.classList.toggle('quiet');$('#quietBtn').setAttribute('aria-pressed',String(on));$('#quietBtn').textContent=on?'☼ Motion off':'☾ Quiet motion';toast(on?'Everything is a little more still now. ♡':'Gentle animations are back. ✧')});const closeIntro=(fanfare)=>{$('#introBackdrop').hidden=true;if(fanfare)celebrate(25);$('#spinBtn').focus();if(fanfare)catSay('SPECIAL DELIVERY! i was told you are extremely lovely. ♡')};$('#openGiftBtn').addEventListener('click',()=>{requestMusicStart();closeIntro(true)});$('#skipIntroBtn').addEventListener('click',()=>{pauseMusic();closeIntro(false)});$('#introDialog').addEventListener('keydown',e=>{if(e.key==='Tab'){const buttons=[$('#openGiftBtn'),$('#skipIntroBtn')];if(e.shiftKey&&document.activeElement===buttons[0]){e.preventDefault();buttons[1].focus()}else if(!e.shiftKey&&document.activeElement===buttons[1]){e.preventDefault();buttons[0].focus()}}});document.querySelectorAll('[data-song]').forEach(b=>b.addEventListener('click',()=>chooseSong(Number(b.dataset.song))));$('#musicToggle').addEventListener('click',()=>{if(isMusicPlaying){pauseMusic()}else{requestMusicStart();if(!spotifyController)toast('Tap ▶ in the Spotify player if music does not start. ♡')}});$('#introDialog').focus();}
+  init();
+</script>
+<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+</body>
+</html>
